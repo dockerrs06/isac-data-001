@@ -1,18 +1,12 @@
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "factoryName": {
-      "value": "dev-adf-env-001"
-    },
-    "storageAccountName": {
-      "value": "devstroageacc001"
-    },
-    "sourceContainerName": {
-      "value": "sourcedata"
-    },
-    "destinationContainerName": {
-      "value": "dest"
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "factoryName": {
+            "value": "dev-adf-env-001"
+        },
+        "dev_manage_identires_properties_typeProperties_serviceEndpoint": {
+            "value": "https://devstroageacc001.blob.core.windows.net/"
+        }
     }
-  }
 }
