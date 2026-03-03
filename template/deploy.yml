@@ -10,8 +10,8 @@ parameters:
     type: string
   - name: subscriptionID
     type: string 
-  - name: environmentParameterFile
-    type: string 
+  # - name: environmentParameterFile
+  #   type: string 
  
 
 
@@ -76,13 +76,13 @@ jobs:
               location: $(location)
               templateLocation: 'Linked artifact'
               csmFile: '$(Pipeline.Workspace)/drop/ArmTemplate/ARMTemplateForFactory.json'
-              # csmParametersFile: '$(Pipeline.Workspace)/drop/ArmTemplate/ARMTemplateParametersForFactory.json'
+              csmParametersFile: '$(Pipeline.Workspace)/drop/ArmTemplate/ARMTemplateParametersForFactory.json'
               # csmParametersFile: '$(Build.SourcesDirectory)/adf/parameters/parameterfile.${{ parameters.environment }}.json'
               # csmParametersFile: $(Build.SourcesDirectory)/parameter/parameterfile.${{parameters.environment_parameter}}.json
               # csmParametersFile: "$(Build.SourcesDirectory)/parameter/${{ parameters.environment_parameter }}.json
               # csmParametersFile: '$(Build.SourcesDirectory)/parameter/${{ parameters.environment_parameter }}'
               # csmParametersFile: '$(Build.SourcesDirectory)/parameter/${{ parameters.environmentParameterFile }}'
-              csmParametersFile: '$(Build.SourcesDirectory)/${{ parameters.environmentParameterFile }}'
+              # csmParametersFile: '$(Build.SourcesDirectory)/${{ parameters.environmentParameterFile }}'
               # csmParametersFile: '$(Build.SourcesDirectory)/parameters/parameter.${{ parameters.environment }}.json'
 
               overrideParameters: |
