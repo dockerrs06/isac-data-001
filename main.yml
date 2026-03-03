@@ -1,0 +1,77 @@
+# ================================================================================================================
+#  Main.yaml:
+# ================================================================================================================
+
+ trigger:
+  branches:
+    include:
+       - main
+       - feature_itg
+       - develop
+  
+
+ pool:
+    name: 'codeway-aws-win2022'
+    #  pool: 'codeway-aws-linux2023'
+  
+
+ stages:
+
+
+  - stage: Build
+    displayName: Build (Validate + Export ARM)
+    jobs:
+    - template: template/build.yml
+      parameters:
+        branchName: ${{ variables['Build.SourceBranchName'] }} 
+
+
+
+  - stage: Deploy
+    displayName: 🚀 Deploy Stage
+    dependsOn: Build
+    condition: succeeded()
+    jobs:
+      - job: Initiate_deployment
+       
+
+      # DEV Environment (develop branch)
+      - ${{ if eq(variables['Build.SourceBranchName'], 'develop') }}:
+        - template: template/deploy.yaml
+          parameters:
+            Environment: 'ISAC-DEV-ADF-ENV'
+            AzureServiceConnection: 'ECAP-ADO-ServiceConnection' # it is belong to development azure devops service connection name.
+            adfName: "ecadev-isac-adf-inf"
+            subscriptionID: "e4044767-07ca-4ac7-899b-19e163b564e1"
+            resourceGroup: "ECADEV-ISAC-RCG-INTEGRATIONLAYER"
+            environmentParameterFile: 'parameter/parameterfile.dev.json'
+            
+            
+         
+          
+
+      # ITG Environment (feature_itg branch)
+      - ${{ if eq(variables['Build.SourceBranchName'], 'feature_itg') }}:
+        - template: template/deploy.yaml
+          parameters:
+            Environment: 'ISAC-ITG-ENV'
+            AzureServiceConnection: 'ECAP-ADO-ServiceConnection' # it is belong to development azure devops service connection name.
+            adfName: "ecaitg-isac-adf-inf"
+            subscriptionID: "e4044767-07ca-4ac7-899b-19e163b564e1"
+            resourceGroup: "ECAITG-ISAC-RCG-INTEGRATIONLAYER"
+            environmentParameterFile: 'parameter/parameterfile.itg.json'
+
+        
+            
+           
+
+      # PROD Environment (release branch)
+      - ${{ if eq(variables['Build.SourceBranchName'], 'master') }}:
+        - template: template/deploy.yaml
+          parameters:
+            Environment: 'ISAC-PROD-ENV'
+            AzureServiceConnection: 'ECAP-ADO-ServiceConnection' # it is belong to development azure devops service connection name.
+            adfName: "ecaprod-isac-adf-inf"
+            subscriptionID: "e4044767-07ca-4ac7-899b-19e163b564e1"
+            resourceGroup: "ECAPRO-ISAC-RCG-INTEGRATIONLAYER"
+            environmentParameterFile: 'parameter/parameterfile.prod.json'
