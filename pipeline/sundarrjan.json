@@ -1,9 +1,9 @@
 {
-	"name": "sundar",
+	"name": "sundarrjan",
 	"properties": {
 		"activities": [
 			{
-				"name": "isac",
+				"name": "moving_data",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
