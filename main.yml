@@ -41,7 +41,7 @@
         - template: template/deploy.yaml
           parameters:
             Environment: 'ISAC-DEV-ADF-ENV'
-            AzureServiceConnection: 'ECAP-ADO-ServiceConnection' # it is belong to development azure devops service connection name.
+            AzureServiceConnection: 'DEV-SUB' # it is belong to development azure devops service connection name.
             adfName: "dev-adf-env-001"
             subscriptionID: "e3d41855-059e-4340-b9ba-28d873e8605b"
             resourceGroup: "sundar-rg"
@@ -56,7 +56,7 @@
         - template: template/deploy.yaml
           parameters:
             Environment: 'ISAC-ITG-ENV'
-            AzureServiceConnection: 'ECAP-ADO-ServiceConnection' # it is belong to development azure devops service connection name.
+            AzureServiceConnection: 'DEV-SUB' # it is belong to development azure devops service connection name.
             adfName: "itg-adf-env-001"
             subscriptionID: "e3d41855-059e-4340-b9ba-28d873e8605b"
             resourceGroup: "sundar-rg"
