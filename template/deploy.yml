@@ -42,25 +42,25 @@ jobs:
           # Pre Deploy — Stop Triggers
           # -----------------------------
         
-          # - task: AzurePowerShell@5
-          #   displayName: Stop ADF Triggers (Pre)
-          #   inputs:
-          #     azureSubscription: ${{ parameters.AzureServiceConnection }}
-          #     ScriptType: FilePath
-          #     # ScriptPath: '$(Pipeline.Workspace)/drop/ArmTemplate/PrePostDeploymentScript.ps1'
-          #     ScriptPath: '$(Pipeline.Workspace)/drop/script/PrePostDeploymentScript.ps1'
-          #     ScriptArguments: >
-          #       -armTemplate "$(Pipeline.Workspace)/drop/ArmTemplate/ARMTemplateForFactory.json"
-          #       -ResourceGroupName "${{ parameters.resourceGroup }}"
-          #       -DataFactoryName "${{ parameters.adfName }}"
-          #       -predeployment $true
-          #       -deleteDeployment $false
-          #       -startTriggersPostDeploy $false
-          #     azurePowerShellVersion: 'LatestVersion'  # <-- add this
-          #     pwsh: true
+          - task: AzurePowerShell@5
+            displayName: Stop ADF Triggers (Pre)
+            inputs:
+              azureSubscription: ${{ parameters.AzureServiceConnection }}
+              ScriptType: FilePath
+              # ScriptPath: '$(Pipeline.Workspace)/drop/ArmTemplate/PrePostDeploymentScript.ps1'
+              ScriptPath: '$(Pipeline.Workspace)/drop/script/PrePostDeploymentScript.ps1'
+              ScriptArguments: >
+                -armTemplate "$(Pipeline.Workspace)/drop/ArmTemplate/ARMTemplateForFactory.json"
+                -ResourceGroupName "${{ parameters.resourceGroup }}"
+                -DataFactoryName "${{ parameters.adfName }}"
+                -predeployment $true
+                -deleteDeployment $false
+                -startTriggersPostDeploy $false
+              azurePowerShellVersion: 'LatestVersion'  # <-- add this
+              pwsh: true
 
-          # - script: ls -R $(Pipeline.Workspace)
-          #   displayName: Show artifact tree   
+          - script: ls -R $(Pipeline.Workspace)
+            displayName: Show artifact tree   
 
           # -----------------------------
           # Deploy ARM Template
@@ -106,22 +106,22 @@ jobs:
           # Post Deploy — Start Triggers
           # -----------------------------
     
-          # - task: AzurePowerShell@5
-          #   displayName: Start ADF Triggers (Post)
-          #   inputs:
-          #     azureSubscription: ${{ parameters.AzureServiceConnection }}
-          #     ScriptType: FilePath
-          #     ScriptPath: '$(Pipeline.Workspace)/drop/script/PrePostDeploymentScript.ps1'
-          #     # ScriptPath: '$(Pipeline.Workspace)/drop/ArmTemplate/PrePostDeploymentScript.ps1'
-          #     ScriptArguments: >
-          #       -armTemplate "$(Pipeline.Workspace)/drop/ArmTemplate/ARMTemplateForFactory.json"
-          #       -ResourceGroupName "${{ parameters.resourceGroup }}"
-          #       -DataFactoryName "${{ parameters.adfName }}"
-          #       -predeployment $false
-          #       -deleteDeployment $true
-          #       -startTriggersPostDeploy $true
-          #     azurePowerShellVersion: 'LatestVersion'  # <-- add this
-          #     pwsh: true
+          - task: AzurePowerShell@5
+            displayName: Start ADF Triggers (Post)
+            inputs:
+              azureSubscription: ${{ parameters.AzureServiceConnection }}
+              ScriptType: FilePath
+              ScriptPath: '$(Pipeline.Workspace)/drop/script/PrePostDeploymentScript.ps1'
+              # ScriptPath: '$(Pipeline.Workspace)/drop/ArmTemplate/PrePostDeploymentScript.ps1'
+              ScriptArguments: >
+                -armTemplate "$(Pipeline.Workspace)/drop/ArmTemplate/ARMTemplateForFactory.json"
+                -ResourceGroupName "${{ parameters.resourceGroup }}"
+                -DataFactoryName "${{ parameters.adfName }}"
+                -predeployment $false
+                -deleteDeployment $true
+                -startTriggersPostDeploy $true
+              azurePowerShellVersion: 'LatestVersion'  # <-- add this
+              pwsh: true
 
 
 
