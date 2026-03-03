@@ -65,63 +65,63 @@ jobs:
           # -----------------------------
           # Deploy ARM Template
           # -----------------------------
-          - task: AzureResourceManagerTemplateDeployment@3
-            displayName: Deploy ADF ARM Template
-            inputs:
-              deploymentScope: 'Resource Group'
-              azureResourceManagerConnection: ${{ parameters.AzureServiceConnection }}
-              subscriptionId: ${{ parameters.subscriptionID }}
-              action: 'Create Or Update Resource Group'
-              resourceGroupName: ${{ parameters.resourceGroup }}
-              location: 'eastus'
-              templateLocation: 'Linked artifact'
-              csmFile: '$(Pipeline.Workspace)/drop/ArmTemplate/ARMTemplateForFactory.json'
-              # csmParametersFile: '$(Pipeline.Workspace)/drop/ArmTemplate/ARMTemplateParametersForFactory.json'
-              # csmParametersFile: '$(Build.SourcesDirectory)/adf/parameters/parameterfile.${{ parameters.environment }}.json'
-              # csmParametersFile: $(Build.SourcesDirectory)/parameter/parameterfile.${{parameters.environment_parameter}}.json
-              # csmParametersFile: "$(Build.SourcesDirectory)/parameter/${{ parameters.environment_parameter }}.json
-              # csmParametersFile: '$(Build.SourcesDirectory)/parameter/${{ parameters.environment_parameter }}'
-              # csmParametersFile: '$(Build.SourcesDirectory)/parameter/${{ parameters.environmentParameterFile }}'
-              # csmParametersFile: '$(Build.SourcesDirectory)/${{ parameters.environmentParameterFile }}'
-              # csmParametersFile: '$(Build.SourcesDirectory)/parameters/parameter.${{ parameters.environment }}.json'
-              csmParametersFile: '$(Build.SourcesDirectory)/${{ parameters.environmentParameterFile }}'
+          # - task: AzureResourceManagerTemplateDeployment@3
+          #   displayName: Deploy ADF ARM Template
+          #   inputs:
+          #     deploymentScope: 'Resource Group'
+          #     azureResourceManagerConnection: ${{ parameters.AzureServiceConnection }}
+          #     subscriptionId: ${{ parameters.subscriptionID }}
+          #     action: 'Create Or Update Resource Group'
+          #     resourceGroupName: ${{ parameters.resourceGroup }}
+          #     location: 'eastus'
+          #     templateLocation: 'Linked artifact'
+          #     csmFile: '$(Pipeline.Workspace)/drop/ArmTemplate/ARMTemplateForFactory.json'
+          #     # csmParametersFile: '$(Pipeline.Workspace)/drop/ArmTemplate/ARMTemplateParametersForFactory.json'
+          #     # csmParametersFile: '$(Build.SourcesDirectory)/adf/parameters/parameterfile.${{ parameters.environment }}.json'
+          #     # csmParametersFile: $(Build.SourcesDirectory)/parameter/parameterfile.${{parameters.environment_parameter}}.json
+          #     # csmParametersFile: "$(Build.SourcesDirectory)/parameter/${{ parameters.environment_parameter }}.json
+          #     # csmParametersFile: '$(Build.SourcesDirectory)/parameter/${{ parameters.environment_parameter }}'
+          #     # csmParametersFile: '$(Build.SourcesDirectory)/parameter/${{ parameters.environmentParameterFile }}'
+          #     # csmParametersFile: '$(Build.SourcesDirectory)/${{ parameters.environmentParameterFile }}'
+          #     # csmParametersFile: '$(Build.SourcesDirectory)/parameters/parameter.${{ parameters.environment }}.json'
+          #     csmParametersFile: '$(Build.SourcesDirectory)/${{ parameters.environmentParameterFile }}'
 
-              # overrideParameters: |
-              #    -factoryName ${{ parameters.adfName }}
+          #     # overrideParameters: |
+          #     #    -factoryName ${{ parameters.adfName }}
                 
 
-                # -gp_oracle_host $(ORACLE_HOST)
-                # -gp_oracle_username $(ORACLE_USERNAME)
-                # -gp_oracle_password $(oracle-password)
-                # -gp_sftp_host $(SFTP_HOST)
-                # -gp_sftp_username $(sftp-username)
-                # -gp_sftp_password $(sftp-password)
-                # -gp_blob_account_name $(BLOB_ACCOUNT_NAME)
-                # -gp_blob_container $(BLOB_CONTAINER)
-                # -gp_environment $(Environment)
-              deploymentMode: 'Incremental'
+          #       # -gp_oracle_host $(ORACLE_HOST)
+          #       # -gp_oracle_username $(ORACLE_USERNAME)
+          #       # -gp_oracle_password $(oracle-password)
+          #       # -gp_sftp_host $(SFTP_HOST)
+          #       # -gp_sftp_username $(sftp-username)
+          #       # -gp_sftp_password $(sftp-password)
+          #       # -gp_blob_account_name $(BLOB_ACCOUNT_NAME)
+          #       # -gp_blob_container $(BLOB_CONTAINER)
+          #       # -gp_environment $(Environment)
+          #     deploymentMode: 'Incremental'
 
         
-          # -----------------------------
-          # Post Deploy — Start Triggers
-          # -----------------------------
+          # # -----------------------------
+          # # Post Deploy — Start Triggers
+          # # -----------------------------
     
-          - task: AzurePowerShell@5
-            displayName: Start ADF Triggers (Post)
-            inputs:
-              azureSubscription: ${{ parameters.AzureServiceConnection }}
-              ScriptType: FilePath
-              ScriptPath: '$(Pipeline.Workspace)/drop/script/PrePostDeploymentScript.ps1'
-              # ScriptPath: '$(Pipeline.Workspace)/drop/ArmTemplate/PrePostDeploymentScript.ps1'
-              ScriptArguments: >
-                -armTemplate "$(Pipeline.Workspace)/drop/ArmTemplate/ARMTemplateForFactory.json"
-                -ResourceGroupName "${{ parameters.resourceGroup }}"
-                -DataFactoryName "${{ parameters.adfName }}"
-                -predeployment $false
-                -deleteDeployment $true
-                -startTriggersPostDeploy $true
-              azurePowerShellVersion: 'LatestVersion'  # <-- add this
-              pwsh: true
+          # - task: AzurePowerShell@5
+          #   displayName: Start ADF Triggers (Post)
+          #   inputs:
+          #     azureSubscription: ${{ parameters.AzureServiceConnection }}
+          #     ScriptType: FilePath
+          #     ScriptPath: '$(Pipeline.Workspace)/drop/script/PrePostDeploymentScript.ps1'
+          #     # ScriptPath: '$(Pipeline.Workspace)/drop/ArmTemplate/PrePostDeploymentScript.ps1'
+          #     ScriptArguments: >
+          #       -armTemplate "$(Pipeline.Workspace)/drop/ArmTemplate/ARMTemplateForFactory.json"
+          #       -ResourceGroupName "${{ parameters.resourceGroup }}"
+          #       -DataFactoryName "${{ parameters.adfName }}"
+          #       -predeployment $false
+          #       -deleteDeployment $true
+          #       -startTriggersPostDeploy $true
+          #     azurePowerShellVersion: 'LatestVersion'  # <-- add this
+          #     pwsh: true
 
 
 
