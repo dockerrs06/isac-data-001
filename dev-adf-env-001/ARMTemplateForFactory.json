@@ -23,7 +23,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "sundarrajan",
+						"name": "rajan",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
