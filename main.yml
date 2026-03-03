@@ -11,7 +11,8 @@
   
 
  pool:
-    name: 'codeway-aws-win2022'
+     vmImage: 'windows-latest'
+
     #  pool: 'codeway-aws-linux2023'
   
 
