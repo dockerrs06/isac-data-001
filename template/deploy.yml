@@ -85,8 +85,8 @@ jobs:
               csmParametersFile: '$(Build.SourcesDirectory)/${{ parameters.environmentParameterFile }}'
               # csmParametersFile: '$(Build.SourcesDirectory)/parameters/parameter.${{ parameters.environment }}.json'
 
-              overrideParameters: |
-                 -factoryName ${{ parameters.adfName }}
+              # overrideParameters: |
+              #    -factoryName ${{ parameters.adfName }}
                 
 
                 # -gp_oracle_host $(ORACLE_HOST)
