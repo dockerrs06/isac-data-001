@@ -1,8 +1,8 @@
 {
-	"name": "soure_dest_ls",
+	"name": "dest_mi_ls",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "dev_stroage",
+			"referenceName": "dev_manage_identires",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -10,8 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "employee_data.csv",
-				"container": "sourcedata"
+				"container": "dest"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

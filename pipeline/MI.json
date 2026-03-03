@@ -1,9 +1,9 @@
 {
-	"name": "sundarrjanttt",
+	"name": "MI",
 	"properties": {
 		"activities": [
 			{
-				"name": "moving_data",
+				"name": "sundar",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -49,13 +49,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "soure_dest_ls",
+						"referenceName": "source_mi_ls",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "dest",
+						"referenceName": "dest_mi_ls",
 						"type": "DatasetReference"
 					}
 				]

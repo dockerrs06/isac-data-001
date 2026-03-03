@@ -45,7 +45,7 @@
             adfName: "dev-adf-env-001"
             subscriptionID: "e3d41855-059e-4340-b9ba-28d873e8605b"
             resourceGroup: "sundar-rg"
-            environmentParameterFile: 'parameter/parameterfile.dev.json'
+            environmentParameterFile: 'parameter/parameter.dev.json'
             
             
          
@@ -60,7 +60,7 @@
             adfName: "itg-adf-env-001"
             subscriptionID: "e3d41855-059e-4340-b9ba-28d873e8605b"
             resourceGroup: "sundar-rg"
-            environmentParameterFile: 'parameter/parameterfile.itg.json'
+            environmentParameterFile: 'parameter/parameter.feature_itg.json'
 
         
             

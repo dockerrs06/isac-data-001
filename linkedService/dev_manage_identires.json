@@ -1,0 +1,11 @@
+{
+	"name": "dev_manage_identires",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"serviceEndpoint": "https://devstroageacc001.blob.core.windows.net/",
+			"accountKind": "StorageV2"
+		}
+	}
+}
