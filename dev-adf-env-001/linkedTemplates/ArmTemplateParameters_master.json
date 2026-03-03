@@ -5,9 +5,6 @@
 		"factoryName": {
 			"value": "dev-adf-env-001"
 		},
-		"dev_stroage_connectionString": {
-			"value": ""
-		},
 		"dev_manage_identires_properties_typeProperties_serviceEndpoint": {
 			"value": "https://devstroageacc001.blob.core.windows.net/"
 		},

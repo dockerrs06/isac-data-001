@@ -7,10 +7,6 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "dev-adf-env-001"
 		},
-		"dev_stroage_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'dev_stroage'"
-		},
 		"dev_manage_identires_properties_typeProperties_serviceEndpoint": {
 			"type": "string",
 			"defaultValue": "https://devstroageacc001.blob.core.windows.net/"
@@ -41,9 +37,6 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
-					},
-					"dev_stroage_connectionString": {
-						"value": "[parameters('dev_stroage_connectionString')]"
 					},
 					"dev_manage_identires_properties_typeProperties_serviceEndpoint": {
 						"value": "[parameters('dev_manage_identires_properties_typeProperties_serviceEndpoint')]"
