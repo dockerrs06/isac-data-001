@@ -6,7 +6,7 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "sundarrjan",
+					"referenceName": "sundarrajan",
 					"type": "PipelineReference"
 				}
 			}
