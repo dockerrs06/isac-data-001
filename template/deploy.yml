@@ -83,7 +83,7 @@ jobs:
               # csmParametersFile: '$(Build.SourcesDirectory)/parameter/${{ parameters.environment_parameter }}'
               # csmParametersFile: '$(Build.SourcesDirectory)/parameter/${{ parameters.environmentParameterFile }}'
               csmParametersFile: '$(Build.SourcesDirectory)/${{ parameters.environmentParameterFile }}'
-              csmParametersFile: '$(Build.SourcesDirectory)/parameters/parameter.${{ parameters.environment }}.json'
+              # csmParametersFile: '$(Build.SourcesDirectory)/parameters/parameter.${{ parameters.environment }}.json'
 
               overrideParameters: |
                  -factoryName ${{ parameters.adfName }}
