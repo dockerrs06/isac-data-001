@@ -73,7 +73,7 @@ jobs:
               subscriptionId: ${{ parameters.subscriptionID }}
               action: 'Create Or Update Resource Group'
               resourceGroupName: ${{ parameters.resourceGroup }}
-              location: $(location)
+              location: 'eastus'
               templateLocation: 'Linked artifact'
               csmFile: '$(Pipeline.Workspace)/drop/ArmTemplate/ARMTemplateForFactory.json'
               # csmParametersFile: '$(Pipeline.Workspace)/drop/ArmTemplate/ARMTemplateParametersForFactory.json'
