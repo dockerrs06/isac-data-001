@@ -106,22 +106,22 @@ jobs:
           # Post Deploy — Start Triggers
           # -----------------------------
     
-          - task: AzurePowerShell@5
-            displayName: Start ADF Triggers (Post)
-            inputs:
-              azureSubscription: ${{ parameters.AzureServiceConnection }}
-              ScriptType: FilePath
-              ScriptPath: '$(Pipeline.Workspace)/drop/script/PrePostDeploymentScript.ps1'
-              # ScriptPath: '$(Pipeline.Workspace)/drop/ArmTemplate/PrePostDeploymentScript.ps1'
-              ScriptArguments: >
-                -armTemplate "$(Pipeline.Workspace)/drop/ArmTemplate/ARMTemplateForFactory.json"
-                -ResourceGroupName "${{ parameters.resourceGroup }}"
-                -DataFactoryName "${{ parameters.adfName }}"
-                -predeployment $false
-                -deleteDeployment $true
-                -startTriggersPostDeploy $true
-              azurePowerShellVersion: 'LatestVersion'  # <-- add this
-              pwsh: true
+          # - task: AzurePowerShell@5
+          #   displayName: Start ADF Triggers (Post)
+          #   inputs:
+          #     azureSubscription: ${{ parameters.AzureServiceConnection }}
+          #     ScriptType: FilePath
+          #     ScriptPath: '$(Pipeline.Workspace)/drop/script/PrePostDeploymentScript.ps1'
+          #     # ScriptPath: '$(Pipeline.Workspace)/drop/ArmTemplate/PrePostDeploymentScript.ps1'
+          #     ScriptArguments: >
+          #       -armTemplate "$(Pipeline.Workspace)/drop/ArmTemplate/ARMTemplateForFactory.json"
+          #       -ResourceGroupName "${{ parameters.resourceGroup }}"
+          #       -DataFactoryName "${{ parameters.adfName }}"
+          #       -predeployment $false
+          #       -deleteDeployment $true
+          #       -startTriggersPostDeploy $true
+          #     azurePowerShellVersion: 'LatestVersion'  # <-- add this
+          #     pwsh: true
 
 
 
