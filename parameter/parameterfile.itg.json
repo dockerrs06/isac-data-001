@@ -1,9 +1,14 @@
 
+
 {
-  "factoryName": {
-    "value": "itg-adf-env-001"
-  },
-  "dev_stroage_connectionString": {
-    "value": "DefaultEndpointsProtocol=https;AccountName=itgstroageaccoun002;AccountKey=sVq4fvzmGd4T1tm/ZpRQVQnh/u5diMJavUsL+hMzyxyzkHuqIl1w0wuP5z6CVvPM7S8H8Vv43gAW+AStaz8ilQ==;EndpointSuffix=core.windows.net"
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "factoryName": {
+      "value": "itg-adf-env-001"
+    },
+    "dev_stroage_connectionString": {
+      "value": "DefaultEndpointsProtocol=https;AccountName=itgstroageaccoun002;AccountKey=sVq4fvzmGd4T1tm/ZpRQVQnh/u5diMJavUsL+hMzyxyzkHuqIl1w0wuP5z6CVvPM7S8H8Vv43gAW+AStaz8ilQ==;EndpointSuffix=core.windows.net"
+    }
   }
 }
