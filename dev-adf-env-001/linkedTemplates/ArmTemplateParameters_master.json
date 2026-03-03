@@ -8,6 +8,9 @@
 		"dev_stroage_connectionString": {
 			"value": ""
 		},
+		"dev_manage_identires_properties_typeProperties_serviceEndpoint": {
+			"value": "https://devstroageacc001.blob.core.windows.net/"
+		},
 		"containerUri": {
 			"value": ""
 		},
