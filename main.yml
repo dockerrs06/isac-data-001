@@ -38,7 +38,7 @@
 
       # DEV Environment (develop branch)
       - ${{ if eq(variables['Build.SourceBranchName'], 'develop') }}:
-        - template: template/deploy.yaml
+        - template: template/deploy.yml
           parameters:
             Environment: 'ISAC-DEV-ADF-ENV'
             AzureServiceConnection: 'DEV-SUB' # it is belong to development azure devops service connection name.
