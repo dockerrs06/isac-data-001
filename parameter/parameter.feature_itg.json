@@ -1,18 +1,12 @@
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "factoryName": {
-      "value": "itg-adf-env-001"
-    },
-    "storageAccountName": {
-      "value": "itgstroageaccoun002"
-    },
-    "sourceContainerName": {
-      "value": "sourcedata"
-    },
-    "destinationContainerName": {
-      "value": "dest"
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "factoryName": {
+            "value": "itg-adf-env-001"
+        },
+        "dev_manage_identires_properties_typeProperties_serviceEndpoint": {
+            "value": "https://itgstroageaccoun002.blob.core.windows.net/"
+        }
     }
-  }
 }
