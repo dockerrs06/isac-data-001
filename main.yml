@@ -42,9 +42,9 @@
           parameters:
             Environment: 'ISAC-DEV-ADF-ENV'
             AzureServiceConnection: 'ECAP-ADO-ServiceConnection' # it is belong to development azure devops service connection name.
-            adfName: "ecadev-isac-adf-inf"
-            subscriptionID: "e4044767-07ca-4ac7-899b-19e163b564e1"
-            resourceGroup: "ECADEV-ISAC-RCG-INTEGRATIONLAYER"
+            adfName: "dev-adf-env-001"
+            subscriptionID: "e3d41855-059e-4340-b9ba-28d873e8605b"
+            resourceGroup: "sundar-rg"
             environmentParameterFile: 'parameter/parameterfile.dev.json'
             
             
@@ -57,9 +57,9 @@
           parameters:
             Environment: 'ISAC-ITG-ENV'
             AzureServiceConnection: 'ECAP-ADO-ServiceConnection' # it is belong to development azure devops service connection name.
-            adfName: "ecaitg-isac-adf-inf"
-            subscriptionID: "e4044767-07ca-4ac7-899b-19e163b564e1"
-            resourceGroup: "ECAITG-ISAC-RCG-INTEGRATIONLAYER"
+            adfName: "itg-adf-env-001"
+            subscriptionID: "e3d41855-059e-4340-b9ba-28d873e8605b"
+            resourceGroup: "sundar-rg"
             environmentParameterFile: 'parameter/parameterfile.itg.json'
 
         
