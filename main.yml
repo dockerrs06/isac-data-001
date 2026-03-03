@@ -53,7 +53,7 @@
 
       # ITG Environment (feature_itg branch)
       - ${{ if eq(variables['Build.SourceBranchName'], 'feature_itg') }}:
-        - template: template/deploy.yaml
+        - template: template/deploy.yml
           parameters:
             Environment: 'ISAC-ITG-ENV'
             AzureServiceConnection: 'DEV-SUB' # it is belong to development azure devops service connection name.
