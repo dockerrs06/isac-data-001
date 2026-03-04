@@ -23,7 +23,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "sundar",
+						"name": "sundarrajan",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
@@ -167,7 +167,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "employee_data.csv",
+						"fileName": "employee_data_dev.csv",
 						"container": "sourcedata"
 					},
 					"columnDelimiter": ",",
