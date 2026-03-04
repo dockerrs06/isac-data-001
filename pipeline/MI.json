@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "sundar",
+				"name": "sundarrajan",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
